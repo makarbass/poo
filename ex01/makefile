@@ -1,35 +1,38 @@
-.PHONY: all, clean, libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bpatrici <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/02/28 07:21:24 by bpatrici          #+#    #+#              #
+#    Updated: 2021/02/28 07:21:31 by bpatrici         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+.PHONY: clean fclean re all libft.a
 CC = gcc
-SRC_PATH = srcs
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+SRC_PATH =./srcs/
+SRCS =  ${SRC_PATH}ft_swap.c ${SRC_PATH}ft_strlen.c ${SRC_PATH}ft_strcmp.c ${SRC_PATH}ft_putstr.c ${SRC_PATH}ft_putchar.c
+OBJS = ${SRCS:.c=.o}
+NAME = libft.a 
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+HEADER = -I ./includes/
 
-all: libft.a
+all: ${NAME}
 
-libft.a: ft_swap.o ft_strlen.o ft_strcmp.o ft_putstr.o ft_putchar.o
-	ar rc libft.a $(SRC_PATH)/*.o
-	ranlib libft.a
+.c.o:
+	${CC} ${CFLAGS} ${HEADER} -c $< -o ${<:.c=.o}
 
-ft_swap.o: $(SRC_PATH)/ft_swap.c
-	$(CC) -c $(CFLAGS) $(SRC_PATH)/ft_swap.c -o $(SRC_PATH)/ft_swap.o
-
-ft_strlen.o: $(SRC_PATH)/ft_strlen.c
-	$(CC) -c $(CFLAGS) $(SRC_PATH)/ft_strlen.c -o $(SRC_PATH)/ft_strlen.o
-
-ft_strcmp.o: $(SRC_PATH)/ft_strcmp.c
-	$(CC) -c $(CFLAGS) $(SRC_PATH)/ft_strcmp.c -o $(SRC_PATH)/ft_strcmp.o
-
-ft_putstr.o: $(SRC_PATH)/ft_putstr.c
-	$(CC) -c $(CFLAGS) $(SRC_PATH)/ft_putstr.c -o $(SRC_PATH)/ft_putstr.o
-
-ft_putchar.o: $(SRC_PATH)/ft_putchar.c
-	$(CC) -c $(CFLAGS) $(SRC_PATH)/ft_putchar.c -o $(SRC_PATH)/ft_putchar.o
+${NAME}: ${SRC_PATH} ${OBJS}
+	ar rc ${NAME} ${OBJS}
+	ranlib ${NAME}
 
 clean:
-	 -rm $(SRC_PATH)/*.o
-fclean:
-	-rm -f libft.a
-re:
-	make fclean
-	make all
-	
-	
+	${RM} ${OBJS}
+
+fclean:	clean
+	${RM} ${NAME}
+
+re: fclean all 
