@@ -29,5 +29,7 @@ clean:
 fclean:
 	-rm -f libft.a
 re:
-
-
+	make fclean
+	make all
+	
+	
