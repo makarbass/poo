@@ -1,52 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_string_tab.c                               :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpatrici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 13:58:06 by bpatrici          #+#    #+#             */
-/*   Updated: 2021/03/03 20:39:46 by bpatrici         ###   ########.fr       */
+/*   Created: 2021/02/23 11:18:26 by bpatrici          #+#    #+#             */
+/*   Updated: 2021/02/23 11:38:22 by bpatrici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		ft_strcmp(char *s1, char *s2)
+int		ft_atoi(char *str)
 {
 	int i;
+	int k;
+	int t;
 
 	i = 0;
-	while (s1[i] != '\0' || s2[i] != '\0')
+	k = 0;
+	t = 1;
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' ||
+			str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if (str[i] == '-')
+			t = t * -1;
 		i++;
 	}
-	return (0);
-}
-
-void	ft_sort_string_tab(char **tab)
-{
-	int		i;
-	int		j;
-	char	*temp;
-
-	i = 0;
-	j = 0;
-	while (tab[i] != NULL)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		j = i;
-		while (tab[j] != NULL)
-		{
-			if (ft_strcmp(tab[i], tab[j]) > 0)
-			{
-				temp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = temp;
-			}
-			j++;
-		}
+		k = k * 10 + str[i] - 48;
 		i++;
 	}
+	return (t * k);
 }

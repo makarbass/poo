@@ -1,52 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_string_tab.c                               :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpatrici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 13:58:06 by bpatrici          #+#    #+#             */
-/*   Updated: 2021/03/03 20:39:46 by bpatrici         ###   ########.fr       */
+/*   Created: 2021/03/02 12:05:51 by bpatrici          #+#    #+#             */
+/*   Updated: 2021/03/03 13:44:23 by bpatrici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_strcmp(char *s1, char *s2)
+int	*ft_map(int *tab, int length, int (*f)(int))
 {
 	int i;
+	int *arr;
 
 	i = 0;
-	while (s1[i] != '\0' || s2[i] != '\0')
+	arr = (int*)malloc(sizeof(int) * length);
+	if (arr == NULL)
+		return (NULL);
+	while (i < length)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		arr[i] = f(tab[i]);
 		i++;
 	}
-	return (0);
-}
-
-void	ft_sort_string_tab(char **tab)
-{
-	int		i;
-	int		j;
-	char	*temp;
-
-	i = 0;
-	j = 0;
-	while (tab[i] != NULL)
-	{
-		j = i;
-		while (tab[j] != NULL)
-		{
-			if (ft_strcmp(tab[i], tab[j]) > 0)
-			{
-				temp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
+	return (arr);
 }
