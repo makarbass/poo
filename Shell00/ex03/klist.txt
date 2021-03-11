@@ -1,0 +1,36 @@
+Credentials cache: API:67E07659-7AFA-4151-87F2-D307FC1A6561
+        Principal: bpatrici@MSK.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Feb 15 17:40:03 2021  Feb 16 03:40:03 2021  krbtgt/MSK.21-SCHOOL.RU@MSK.21-SCHOOL.RU
+
+
+Credentials cache: API:9A7DDBF2-2867-46AE-BF54-1C025A494ED4
+        Principal: bpatrici@MSK.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Feb 15 15:15:09 2021  Feb 16 01:15:09 2021  krbtgt/MSK.21-SCHOOL.RU@MSK.21-SCHOOL.RU
+
+
+Credentials cache: API:66D630EA-45B0-47A6-AF8E-6E02EEF18BC3
+        Principal: bpatrici@MSK.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Feb 15 14:12:47 2021  Feb 16 00:12:47 2021  krbtgt/MSK.21-SCHOOL.RU@MSK.21-SCHOOL.RU
+
+
+Credentials cache: API:57A11B81-6693-42DE-8BB6-051606093DA2
+        Principal: bpatrici@MSK.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Feb 15 14:03:48 2021  Feb 16 00:03:48 2021  krbtgt/MSK.21-SCHOOL.RU@MSK.21-SCHOOL.RU
+
+
+Credentials cache: API:9D5311BD-78EB-4DEC-8D92-EB34DA24D3AC
+        Principal: bpatrici@MSK.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Feb 15 11:25:21 2021  Feb 15 21:25:21 2021  krbtgt/MSK.21-SCHOOL.RU@MSK.21-SCHOOL.RU
+Feb 15 11:25:24 2021  Feb 15 21:25:21 2021  HTTP/student-storage.msk.21-school.ru@MSK.21-SCHOOL.RU
+
+
